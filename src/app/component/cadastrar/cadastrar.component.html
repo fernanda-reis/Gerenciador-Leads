@@ -8,13 +8,14 @@
       </div>
 
       <div class="form-group">
-        <label for="">Password*</label>
-        <input (input) = 'confirmPassword($event)' type="password" class="form-control">
+        <label for="">Password* <i class="fa fa-question-circle" aria-hidden="true" title={{tooltipText}}></i></label>
+
+        <input [(ngModel)]=confirmedPassword #validInput (keyup)='validatePassword(validInput)' (keyup)='comparePassword(confirmInput)' type="password" class="form-control">
       </div>
 
       <div class="form-group">
         <label for="">Password Confirmação*</label>
-        <input [(ngModel)]=user.senha type="password" class="form-control" name="password">
+        <input [(ngModel)]=user.senha #confirmInput (keyup)='comparePassword(confirmInput)' type="password" class="form-control" name="confirm-password">
       </div>
 
       <button class="btn-padrao" (click)="saveUser()">Registrar</button>

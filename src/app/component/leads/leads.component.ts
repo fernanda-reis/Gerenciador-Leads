@@ -1,5 +1,6 @@
 import { Lead } from 'src/app/model/lead';
 import { Component, OnInit } from '@angular/core';
+import { LeadService } from 'src/app/service/lead.service';
 
 @Component({
   selector: 'app-leads',
@@ -10,12 +11,23 @@ export class LeadsComponent implements OnInit {
 
   leads: Lead[]
 
-  constructor() { }
+  status = ['Cliente em Potencial', 'Dados Confirmados', 'Reunião Agendada'];
 
-  ngOnInit(){}
+  constructor(
+    private leadService: LeadService
+  ) { }
+
+  ngOnInit(){
+    this.getLeads()
+  }
 
   getLeads(){
+    this.leads = this.leadService.getLeads()
+    console.log(this.leads)
+  }
 
+  isStatusOk(){
+    
   }
 }
 

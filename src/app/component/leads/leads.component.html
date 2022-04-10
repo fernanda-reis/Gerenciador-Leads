@@ -1,38 +1,35 @@
 <main>
   <h1>Painel de Leads</h1>
 
-        <button class="btn btn-info btn-novo" routerLink="/novo-lead">Novo Lead (+)</button>
+  <button class="btn btn-info btn-novo" routerLink="/novo-lead">
+    Novo Lead (+)
+  </button>
 
-
-        <table class="table table-striped">
-          <thead class="thead-dark table-head">
-            <tr>
-              <th scope="col">Cliente em Potencial</th>
-              <th scope="col">Dados Confirmados</th>
-              <th scope="col">Reunião Agendada</th>
+  <div class="tables d-flex justify-content-center">
+    <ng-container *ngFor="let item of status">
+      <table class="table table-striped table-hover" name="table-leads" [id]="item">
+        <thead class="thead-dark table-head">
+          <tr>
+            <th scope="col">{{ item }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let lead of leads">
+            <tr *ngIf="lead.status == item">
+              <td>
+                <div>
+                  <span>{{ lead.nome }}</span>
+                </div>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
+            <tr *ngIf="lead.status != item">
+              <td>
+                <div></div>
+              </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-            </tr>
-          </tbody>
-        </table>
-
-      </main>
-
-
-
-
+          </ng-container>
+        </tbody>
+      </table>
+    </ng-container>
+  </div>
+</main>

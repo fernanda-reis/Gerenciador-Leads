@@ -2,5 +2,14 @@
   color: white;
 }
 .btn-novo {
-  margin: 20px 0 10px 0;
+  margin: 20px 0 15px 0;
+}
+
+th, td > div{
+  min-height: 50px;
+  text-align: center;
+}
+
+td {
+  border: 1px solid black;
 }

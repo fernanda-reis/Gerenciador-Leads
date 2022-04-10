@@ -17,13 +17,12 @@ export class LeadService {
     localStorage.setItem("bd_leads", JSON.stringify(this.leads))
   }
 
-  // getLeads() : Lead[] {
-  //   if(localStorage.getItem("bd_leads")){
-  //     this.leads = JSON.parse(localStorage.getItem("bd_leads"))
-  //   } else {
-  //     this.leads = []
-  //   }
-
-  //   return this.leads
-  // }
+  getLeads() : Lead[] {
+    if(localStorage.getItem("bd_leads")){
+      this.leads = JSON.parse(localStorage.getItem("bd_leads")!)
+    } else {
+      this.leads = []
+    }
+    return this.leads
+  }
 }
