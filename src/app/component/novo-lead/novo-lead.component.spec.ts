@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NovaLeadComponent } from './nova-lead.component';
+import { NovoLeadComponent } from './novo-lead.component';
 
-describe('novaLeadComponent', () => {
-  let component: NovaLeadComponent;
-  let fixture: ComponentFixture<NovaLeadComponent>;
+describe('novoLeadComponent', () => {
+  let component: NovoLeadComponent;
+  let fixture: ComponentFixture<NovoLeadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NovaLeadComponent ]
+      declarations: [ NovoLeadComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NovaLeadComponent);
+    fixture = TestBed.createComponent(NovoLeadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

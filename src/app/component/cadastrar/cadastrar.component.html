@@ -1,0 +1,25 @@
+<main class="d-flex align-items-center justify-content-center">
+
+  <div class="col-md-6 caixa">
+
+      <div class="form-group">
+        <label for="">Usuário*</label>
+        <input [(ngModel)]=user.usuario type="text" class="form-control" name="usuario">
+      </div>
+
+      <div class="form-group">
+        <label for="">Password*</label>
+        <input (input) = 'confirmPassword($event)' type="password" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="">Password Confirmação*</label>
+        <input [(ngModel)]=user.senha type="password" class="form-control" name="password">
+      </div>
+
+      <button class="btn-padrao" (click)="saveUser()">Registrar</button>
+
+      <a routerLink="/login" class="link-cancelar">Voltar</a>
+
+      </div>
+</main>

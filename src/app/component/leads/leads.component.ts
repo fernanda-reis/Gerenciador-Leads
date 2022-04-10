@@ -1,3 +1,4 @@
+import { Lead } from 'src/app/model/lead';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeadsComponent implements OnInit {
 
+  leads: Lead[]
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(){}
 
+  getLeads(){
+
+  }
 }
 

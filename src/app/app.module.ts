@@ -5,18 +5,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LeadsComponent } from './view/leads/leads.component';
-import { NovaLeadComponent } from './view/nova-lead/nova-lead.component';
-import { LoginComponent } from './view/login/login.component';
-import { CadastrarComponent } from './view/cadastrar/cadastrar.component';
+import { CadastrarComponent } from './component/cadastrar/cadastrar.component';
+import { LeadsComponent } from './component/leads/leads.component';
+import { LoginComponent } from './component/login/login.component';
+import { NovoLeadComponent } from './component/novo-lead/novo-lead.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LeadsComponent,
-    NovaLeadComponent,
     LoginComponent,
     CadastrarComponent,
+    NovoLeadComponent
+
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,61 @@
+    <main>
+    <h1>Novo Lead</h1>
+
+    <form action="" class="d-flex justify-content-around align-items-center flex-wrap">
+
+      <div class="col-md-5">
+      <div class="form-group">
+        <label for="nome">Nome*</label>
+        <input type="text" name="nome" class="form-control" [(ngModel)]="lead.nome">
+      </div>
+
+      <div class="form-group">
+        <label for="tel">Telefone*</label>
+        <input type="text" name="tel" class="form-control" [(ngModel)]="lead.telefone">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email*</label>
+        <input type="email" name="email" class="form-control" [(ngModel)]="lead.email">
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="form-group">
+        <label for="">Oportunidades*</label>
+      <table class="table table-striped">
+        <thead class="thead-dark table-head">
+          <tr>
+            <th scope="col">
+              <input [(ngModel)]="checkboxAll"
+              type="checkbox"
+              name="checkboxAll"
+              [value]="-1"
+              (change)="onCheck($event)">
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of oportunidades">
+            <th scope="row">
+              <input type="checkbox"
+              name={{item.name}}
+              [value] = "item.id"
+              [checked]="item.select"
+              (change)="onCheck($event)">
+            </th>
+            <td>{{item.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+      <button class="btn btn-danger" routerLink="/leads">Cancelar</button>
+      <button class="btn btn-info" (click)="saveLead()">Salvar</button>
+    </div>
+
+    </form>
+  </main>
+
+

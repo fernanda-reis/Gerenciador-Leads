@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-cadastrar',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastrarComponent implements OnInit {
 
+  user: Usuario = new Usuario()
+
+  confirmedPassword: string
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){ }
+
+  confirmPassword($event: any){
+    this.confirmedPassword = $event.target.value;
+  }
+
+  saveUser(){
+    
+    console.log(this.user)
   }
 
 }
