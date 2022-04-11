@@ -5,29 +5,45 @@ import { LeadService } from 'src/app/service/lead.service';
 @Component({
   selector: 'app-leads',
   templateUrl: './leads.component.html',
-  styleUrls: ['./leads.component.css']
+  styleUrls: ['./leads.component.css'],
 })
 export class LeadsComponent implements OnInit {
+  leads: Lead[];
+  lead: Lead = new Lead();
+  isDropAllowed = false;
 
-  leads: Lead[]
+  status = [
+    { id: 1, name: 'Cliente em Potencial' },
+    { id: 2, name: 'Dados Confirmados' },
+    { id: 3, name: 'Reunião Agendada' },
+  ];
 
-  status = ['Cliente em Potencial', 'Dados Confirmados', 'Reunião Agendada'];
+  constructor(private leadService: LeadService) {}
 
-  constructor(
-    private leadService: LeadService
-  ) { }
-
-  ngOnInit(){
-    this.getLeads()
+  ngOnInit() {
+    this.getLeads();
   }
 
-  getLeads(){
-    this.leads = this.leadService.getLeads()
-    console.log(this.leads)
+  getLeads() {
+    this.leads = this.leadService.getLeads();
   }
 
-  isStatusOk(){
-    
+  drag($event: any) { 
+    let id = $event.target.id;
+    this.lead = this.leadService.getLeadById(id);
+  }
+
+  allowDrop($event: any, divStatus: number) {
+    $event.preventDefault();
+    if (this.lead.status + 1 == divStatus) {
+      this.isDropAllowed = true;
+    } else this.isDropAllowed = false;
+  }
+
+  drop(){
+   if (this.isDropAllowed) {
+      this.leadService.update(this.lead.idLead);
+      this.getLeads()
+   }
   }
 }
-

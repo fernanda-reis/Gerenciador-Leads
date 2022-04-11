@@ -3,7 +3,7 @@ export class Lead {
   public nome: string
   public telefone: string
   public email: string
-  public status: string
+  public status: number
   public oportunidades: string[]
 
 }

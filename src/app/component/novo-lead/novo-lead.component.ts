@@ -42,7 +42,31 @@ export class NovoLeadComponent implements OnInit {
   }
 
   saveLead() {
-    this.lead.status = 'Cliente em Potencial';
+    this.setOportunidades()
+
+    if(this.checkForm()) {
+    this.leadService.save(this.lead);
+    alert('Lead salva com sucesso!');
+    this.refresh();
+    } else {
+      alert("Preencha os dados corretamente!")
+    }
+  }
+
+  checkForm(){
+    if (this.lead.nome != null && this.lead.nome != ""){
+      if (this.lead.telefone != null && this.lead.telefone != ""){
+        if (this.lead.email != null && this.lead.email != ""){
+          if (this.lead.oportunidades.length > 0){
+            return true
+          }
+        }
+      }
+    }
+    return false
+  }
+
+  setOportunidades(){
     this.lead.oportunidades = [];
 
     const checkedOportunidades = this.oportunidades.filter(
@@ -51,11 +75,8 @@ export class NovoLeadComponent implements OnInit {
     for (const item of checkedOportunidades) {
       this.lead.oportunidades.push(item.name);
     }
-
-    this.leadService.save(this.lead);
-    alert('Lead salva com sucesso!');
-    this.refresh();
   }
+
 
   refresh() {
     this.lead = new Lead();

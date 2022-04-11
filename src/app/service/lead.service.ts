@@ -13,6 +13,7 @@ export class LeadService {
 
   save(lead: Lead){
     lead.idLead = Guid.create().toString()
+    lead.status = 1;
     this.leads.push(lead)
     localStorage.setItem("bd_leads", JSON.stringify(this.leads))
   }
@@ -24,5 +25,18 @@ export class LeadService {
       this.leads = []
     }
     return this.leads
+  }
+
+  getLeadById(id: string) : Lead {    
+    this.leads = this.getLeads()
+    const index = this.leads.findIndex((i) => i.idLead == id)
+    return this.leads[index]
+  }
+
+  update(id: string){
+    this.leads = this.getLeads()
+    const index = this.leads.findIndex((i) => i.idLead == id)
+    this.leads[index].status += 1
+    localStorage.setItem("bd_leads", JSON.stringify(this.leads))
   }
 }

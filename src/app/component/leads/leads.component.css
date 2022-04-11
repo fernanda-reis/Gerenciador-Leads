@@ -10,6 +10,12 @@ th, td > div{
   text-align: center;
 }
 
+span:hover{
+  font-size: 25px;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
 td {
   border: 1px solid black;
 }
