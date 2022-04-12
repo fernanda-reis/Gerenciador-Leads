@@ -74,7 +74,6 @@ export class CadastrarComponent implements OnInit {
 
   validatePassword(element: HTMLInputElement) {
     const input = element;
-    console.log(this.confirmedPassword);
     if (this.confirmedPassword != undefined && this.confirmedPassword != '') {
       if (
         this.checkForLength() &&
