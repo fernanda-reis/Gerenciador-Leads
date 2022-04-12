@@ -1,5 +1,5 @@
 # Gerenciador de Leads
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bd923c7f-851c-461b-b228-a7b7b51e5f82/deploy-status)](https://app.netlify.com/sites/gerenciador-leads/deploys)  
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.4.
 
 ## Development server
