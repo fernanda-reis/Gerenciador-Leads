@@ -11,23 +11,24 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class LoginComponent implements OnInit {
   user: Usuario = new Usuario();
-  isAuthenticated: boolean = false
 
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
   ngOnInit() {}
 
   login() {
-      this.isAuthenticated = this.usuarioService.authentication(
-      this.user.usuario,
-      this.user.senha
-    );
-
-    if (this.isAuthenticated) {
+    if (this.validateUser()) {
       this.router.navigate(['/leads']);
       environment.id = this.user.idUsuario
     } else {
       alert('Dados incorretos!');
     }
+  }
+
+  validateUser() : boolean {
+    return this.usuarioService.authentication(
+      this.user.usuario,
+      this.user.senha
+    );
   }
 }

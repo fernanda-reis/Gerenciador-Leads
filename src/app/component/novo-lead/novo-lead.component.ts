@@ -30,7 +30,7 @@ export class NovoLeadComponent implements OnInit {
     }
   }
 
-  onCheck($event: any) {
+  onCheckBox($event: any) {
     const id = $event.target.value;
     const isChecked = $event.target.checked;
 
@@ -51,7 +51,7 @@ export class NovoLeadComponent implements OnInit {
   saveLead() {
     this.setOportunidades()
 
-    if(this.checkForm()) {
+    if(this.validateForm()) {
     this.leadService.save(this.lead);
     alert('Lead salva com sucesso!');
     this.refresh();
@@ -60,7 +60,7 @@ export class NovoLeadComponent implements OnInit {
     }
   }
 
-  checkForm(){
+  validateForm(){
     if (this.lead.nome != null && this.lead.nome != ""){
       if (this.lead.telefone != null && this.lead.telefone != ""){
         if (this.lead.email != null && this.lead.email != ""){
@@ -83,7 +83,6 @@ export class NovoLeadComponent implements OnInit {
       this.lead.oportunidades.push(item.name);
     }
   }
-
 
   refresh() {
     this.lead = new Lead();
