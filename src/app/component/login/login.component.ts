@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/model/usuario';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
 
     if (this.isAuthenticated) {
       this.router.navigate(['/leads']);
+      environment.id = this.user.idUsuario
     } else {
       alert('Dados incorretos!');
     }

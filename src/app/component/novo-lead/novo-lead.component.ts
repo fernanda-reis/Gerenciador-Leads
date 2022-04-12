@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Lead } from 'src/app/model/lead';
 import { LeadService } from 'src/app/service/lead.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-novo-lead',
@@ -19,9 +21,14 @@ export class NovoLeadComponent implements OnInit {
 
   checkboxAll: boolean = false;
 
-  constructor(private leadService: LeadService) {}
+  constructor(private leadService: LeadService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (environment.id == ''){
+      alert('Você precisa estar logado para acessar esta página!');
+      this.router.navigate(['/login']);
+    }
+  }
 
   onCheck($event: any) {
     const id = $event.target.value;

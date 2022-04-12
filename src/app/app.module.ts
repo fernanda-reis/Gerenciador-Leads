@@ -9,6 +9,7 @@ import { CadastrarComponent } from './component/cadastrar/cadastrar.component';
 import { LeadsComponent } from './component/leads/leads.component';
 import { LoginComponent } from './component/login/login.component';
 import { NovoLeadComponent } from './component/novo-lead/novo-lead.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { NovoLeadComponent } from './component/novo-lead/novo-lead.component';
     LeadsComponent,
     LoginComponent,
     CadastrarComponent,
-    NovoLeadComponent
+    NovoLeadComponent,
+    PageNotFoundComponent,
 
   ],
   imports: [
