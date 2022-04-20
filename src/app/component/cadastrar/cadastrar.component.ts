@@ -81,11 +81,11 @@ export class CadastrarComponent implements OnInit {
         this.checkForDigit() &&
         this.checkForUppercase()
       ) {
-        input.setAttribute('style', 'background-color:##FFFFFF');
+        input.setAttribute('style', 'background-color:#FFFFFF');
         this.isPasswordValid = true;
       } else {
         input.setAttribute('style', 'background-color:#FA8072');
-        this.isPasswordValid = true;
+        this.isPasswordValid = false;
       }
     } else {
       input.setAttribute('style', 'background-color:#FFFFFF');
@@ -99,7 +99,7 @@ export class CadastrarComponent implements OnInit {
     if (this.isPasswordValid && this.user.senha) {
       if (this.user.senha != '') {
         if (this.user.senha == this.confirmedPassword) {
-          input.setAttribute('style', 'background-color:##FFFFFF');
+          input.setAttribute('style', 'background-color:#FFFFFF');
           this.isPasswordMatch = true;
         } else {
           input.setAttribute('style', 'background-color:#FA8072');
